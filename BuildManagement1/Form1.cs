@@ -21,6 +21,7 @@ namespace BuildManagement1
 
         string sourcePath = @"C:\Users\gamef\Documents\Learning\Practice Build Management Tool\Build Source Location";
         string destinationPath = "";
+        bool pathCheck = false;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -55,9 +56,35 @@ namespace BuildManagement1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // check first if source and destination are not complete.
+            // Checks to see if source and destination have paths
+            bool confirmation = checkPaths();
 
-            // need progress bar for file copy
+            if (confirmation)
+            {
+                MessageBox.Show("Test True");
+            }
+
+            // WIP make archive a toggle and archives build by date folder
+
+            // WIP needs to delete old build
+
+            // WIP need progress bar for file copy
+        }
+
+        private bool checkPaths()
+        {
+            
+            if (textBox1.Text == "" || textBox1.Text == null || textBox2.Text == "" || textBox2.Text == null)
+            {
+                MessageBox.Show("Please make sure a both directories have a selected path.");
+            }
+
+            else if (textBox1.Text != "" || textBox1.Text != null || textBox2.Text != "" || textBox2.Text != null)
+            {
+                pathCheck = true;
+            }
+
+            return pathCheck;
         }
     }
 }
