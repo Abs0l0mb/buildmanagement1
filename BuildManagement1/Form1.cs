@@ -20,6 +20,7 @@ namespace BuildManagement1
         }
 
         string sourcePath = @"C:\Users\gamef\Documents\Learning\Practice Build Management Tool\Build Source Location";
+        string destinationPath = "";
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -28,6 +29,7 @@ namespace BuildManagement1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // default set for build folder (source)
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.Desktop;
             fbd.Description = "**Please select a source folder/directory**";
@@ -36,6 +38,26 @@ namespace BuildManagement1
             {
                 textBox1.Text = fbd.SelectedPath;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // set location for build copy (destination)
+            FolderBrowserDialog fbd2 = new FolderBrowserDialog();
+            fbd2.RootFolder = Environment.SpecialFolder.Desktop;
+            fbd2.Description = "**Please select a directory for build to be copied to.*";
+
+            if (fbd2.ShowDialog() == DialogResult.OK)
+            {
+                textBox2.Text = fbd2.SelectedPath;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // check first if source and destination are not complete.
+
+            // need progress bar for file copy
         }
     }
 }
